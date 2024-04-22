@@ -36,29 +36,51 @@ menu_extrato = """"
 
 """
 
+PARABENS =
+"""################ DEPOSITO ################
+                               
+       PARABENS PELO DEPOSITO DE {VALOR_DEPOSITO}        
+                            
+   ################# FIM ####################"""
+
 saldo = 0
 limite =500
 extrato=""
 numero_saques = 3
 
 
-while True:
+while True:   
+   print(menu)
+   opcao = input("aqui: ")
+   
+   if opcao == "d":
+    while True:
+       print(menu_deposito) 
+       deposito = input("valor: ") 
+       print("""voce desejadepositar:""",deposito,"?\n")
+       resposta = input("yes or no: ")
+       if resposta == "yes" : print("""""")
 
-   opcao = input("menu :")
-
-   if opcao=="d":
-      print(menu_deposito)   
+       b = input("voce deseja voltar? yes or no: ")
+       if b = "yes": break 
+         
      
 
    elif opcao=="s":
       print(menu_saque)
+      saque = input("valor: ")
 
    elif opcao=="e":
-      print("Extrato")
+      print(menu_extrato)
+      
 
 
-   elif opcao=="q":
+   elif opcao == "q" :
       break
+
+   else :
+      print("digite a opcao novamente")
+    
 
 
    
