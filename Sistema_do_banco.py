@@ -44,9 +44,7 @@ numero_saques = 3
 
 while True:
 
-   print(menu)
-
-   opcao = input("menu")
+   opcao = input("menu :")
 
    if opcao=="d":
       print(menu_deposito)   
@@ -63,5 +61,4 @@ while True:
       break
 
 
-   else :
-      print("operacao invalida , por favor selecione novante a operacao desejada")
+   
