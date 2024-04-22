@@ -43,7 +43,10 @@ numero_saques = 3
 
 
 while True:
-   opcao = input("AQUI")
+
+   print(menu)
+
+   opcao = input("menu")
 
    if opcao=="d":
       print(menu_deposito)   
