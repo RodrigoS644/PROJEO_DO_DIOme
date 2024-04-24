@@ -36,14 +36,8 @@ menu_extrato = """"
 
 """
 
-PARABENS =
-"""################ DEPOSITO ################
-                               
-       PARABENS PELO DEPOSITO DE {VALOR_DEPOSITO}        
-                            
-   ################# FIM ####################"""
-
-saldo = 0
+ 
+saldo_ATUAL = 0
 limite =500
 extrato=""
 numero_saques = 3
@@ -52,23 +46,47 @@ numero_saques = 3
 while True:   
    print(menu)
    opcao = input("aqui: ")
+   if numero_saques == 0 : print("numero de saques diarios atingido!!")
    
    if opcao == "d":
     while True:
        print(menu_deposito) 
        deposito = input("valor: ") 
-       print("""voce desejadepositar:""",deposito,"?\n")
-       resposta = input("yes or no: ")
-       if resposta == "yes" : print("""""")
 
-       b = input("voce deseja voltar? yes or no: ")
-       if b = "yes": break 
-         
-     
-
+       print("""voce deseja depositar:""",deposito,"?\n")
+       resposta = input("""{1}sim {2}nao""")
+       if resposta == "1" :
+          saldo_ATUAL += int(deposito)
+          print("""
+          ################ DEPOSITO ################
+                               
+             PARABENS!!! PELO DEPOSITO DE R${deposito1}        
+                   seu saldo atual e : {saldo} 
+          ################# FIM ####################""".format(deposito1 = deposito,saldo=saldo_ATUAL))
+       
+       
+       print (saldo_ATUAL)
+       
+       break
+    
    elif opcao=="s":
-      print(menu_saque)
-      saque = input("valor: ")
+       
+       while True:
+        print(menu_saque)
+        saque = input("valor: ")
+        if int(saque) > 500 or int(saldo) : print("""
+                ################ SAQUE ################
+                               
+                     VALOR MAXIMO DE SAQUE EXCEDIDO        
+                            
+                ################# FIM ##################""")
+        else :"""################ SAQUE ################
+                               
+                   PARABENS!!! PELO SAQUE DE R${saque} 
+                            
+                            
+                ################# FIM ##################""".format(saque = saque)
+       
 
    elif opcao=="e":
       print(menu_extrato)
