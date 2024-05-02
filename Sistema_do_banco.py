@@ -74,7 +74,7 @@ while True:
           
        elif resposta != "1" : break
        
-       break
+       
     
    elif opcao.lower()=="s":
        
