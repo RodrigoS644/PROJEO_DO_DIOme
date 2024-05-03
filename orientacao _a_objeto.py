@@ -35,25 +35,17 @@ menu_extrato =""""
 
 
 """
+
+
 class perfil:
     
     def __init__(self,saldo_ATUAL,extrato_list,numero_saques):
+    
      self.saldo_ATUAL = saldo_ATUAL
      self.extrato_list= extrato_list
      self.numero_saques = numero_saques
-
-     while True:
-        print(menu)
-        opcao = input("aqui: ")
-        if opcao.lower()=="d": 
-         perfil().deposito()
-        elif opcao.lower()=="s": 
-         perfil(saldo_ATUAL,extrato_list,numero_saques).saque()
-        elif opcao.lower()=="e":
-          perfil(saldo_ATUAL,extrato_list,numero_saques).extrato()
-        elif opcao.lower()=="q":
-         break
-        else :print("DIGITE A OPCAO NOVAMENTE")
+     self.limite= 500
+    
 
 
 
@@ -77,12 +69,14 @@ class perfil:
                 
 ################# FIM ####################""".format(deposito1 = deposito,saldo=self.saldo_ATUAL))
              self.extrato_list += "+"+"R$"+str(deposito)+"\n"
+            
              resposta = input ("deseja voltar ao menu? (1)sim (2)nao")
              if resposta == "1" : break
              elif resposta != "1" : 
                print("VOCE VAI VOLTAR SIMM!!!!")
                break
            elif resposta != "1" : break
+         return self.saldo_ATUAL
        
   
     
@@ -155,7 +149,7 @@ VALOR MAXIMO DE SAQUES DIORIOS EXCEDIDO
  voce ainda possui {saques_diarios} saques diarios
                    
 ################# FIM ##################""".format(saque = saque, saldo=self.saldo_ATUAL, saques_diarios = self.numero_saques))
-             self.extrato += "-"+"R$"+str(saque)+"\n"
+             self.extrato_list += "-"+"R$"+str(saque)+"\n"
              
              resposta = input ("deseja voltar ao menu? (1)sim (2)nao")
              if resposta == "1" : break
@@ -183,14 +177,26 @@ VALOR MAXIMO DE SAQUES DIORIOS EXCEDIDO
             print("VOCE VAI VOLTAR SIMM!!!!")
             break
       
+def start(saldo):
+ while True:
+    print(menu)
+    opcao = input("aqui: ")
+    if opcao.lower()=="d": 
+       saldo += perfil(saldo,"",2).deposito()
+       print(saldo)
+    elif opcao.lower()=="s": 
+       saldo+=perfil(saldo,"",3).saque()   
+    elif opcao.lower()=="e":
+       perfil().extrato()
+    elif opcao.lower()=="q":
+         break
+    else :print("DIGITE A OPCAO NOVAMENTE")
+
+start(0)
 
 
 
 
-
-
-
-perfil(0,"nd",3)
 
   
     
